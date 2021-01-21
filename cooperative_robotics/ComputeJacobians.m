@@ -21,6 +21,11 @@ function [uvms] = ComputeJacobians(uvms)
 % [omegax_t omegay_t omegaz_t xdot_t ydot_t zdot_t] = Jt ydot
 % [angular velocities; linear velocities]
 %
+% vehicle contribution is simply a rigid body transformation from vehicle
+% frame to tool frame. Notice that linear and angular velocities are
+% swapped due to the different definitions of the task and control
+% variables
+% GIVEN CODE
 % Ste is the rigid body transformation from vehicle-frame to end-effector
 % frame projected on <v>
 uvms.Ste = [eye(3) zeros(3);  -skew(uvms.vTe(1:3,1:3)*uvms.eTt(1:3,4)) eye(3)];
@@ -35,5 +40,8 @@ uvms.Jt_v = [zeros(3) eye(3); eye(3) -skew(uvms.vTt(1:3,4))];
 % juxtapose the two Jacobians to obtain the global one
 uvms.Jt = [uvms.Jt_a uvms.Jt_v];
 
+% TASK 1.1 ------------------------------------------
+uvms.Jv.ang = [zeros(3,7), zeros(3,3), uvms.wTv(1:3,1:3)];
+uvms.Jv.lin = [zeros(3,7), uvms.wTv(1:3,1:3), zeros(3,3) ];
 
 end

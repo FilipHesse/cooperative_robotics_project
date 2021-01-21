@@ -43,15 +43,23 @@ uvms.Jt_a = [];
 uvms.Jt_v = [];
 uvms.Jt = [];
 
+uvms.Jv.ang = [];
+uvms.Jv.lin = [];
+
 uvms.xdot.jl = [];
 uvms.xdot.mu = [];
 uvms.xdot.ha = [];
 uvms.xdot.t = [];
-    
+uvms.xdot.v.ang = [];
+uvms.xdot.v.lin = [];
+
+
 uvms.A.jl = zeros(7,7);
 uvms.A.mu = 0;
 uvms.A.ha = zeros(1,1);
 uvms.A.t = zeros(6,6);
+uvms.A.v.ang = zeros(3,3)
+uvms.A.v.lin = zeros(3,3)
 
 end
 

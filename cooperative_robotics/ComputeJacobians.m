@@ -40,8 +40,24 @@ uvms.Jt_v = [zeros(3) eye(3); eye(3) -skew(uvms.vTt(1:3,4))];
 % juxtapose the two Jacobians to obtain the global one
 uvms.Jt = [uvms.Jt_a uvms.Jt_v];
 
-% TASK 1.1 ------------------------------------------
+% EXERCISE 1.1 ------------------------------------------
 uvms.Jv.ang = [zeros(3,7), zeros(3,3), uvms.wTv(1:3,1:3)];
 uvms.Jv.lin = [zeros(3,7), uvms.wTv(1:3,1:3), zeros(3,3) ];
+
+
+%% Horizontal attitude Jacobian
+v_kv = [0 0 1]';                   % k-vector of vehicle frame wrt to w
+w_kw = [0 0 1]';                   % k-vector of world frame wrt to w
+v_kw = (uvms.vTw(1:3,1:3)) * w_kw; %Transform k in the world frame to k in the vehicle frame
+
+% Compute misalignment vector of k-axis
+uvms.phi   = ReducedVersorLemma(v_kw, v_kv); % only for k (=rho)
+
+if (norm(uvms.phi) > 0) % Avoid division by zero
+    nphi = uvms.phi/norm(uvms.phi); % compute unit vector 
+else
+    nphi = [0 0 0]';
+end
+uvms.Jha =[zeros(1,7) zeros(1,3) nphi'];
 
 end

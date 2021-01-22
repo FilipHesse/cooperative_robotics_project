@@ -1,5 +1,6 @@
 function MainRobust
 addpath('./simulation_scripts');
+addpath('./plot_scripts');
 clc;
 clear;
 close all
@@ -95,13 +96,16 @@ for t = 0:deltat:end_time
     [Qp, ydotbar] = iCAT_task(eye(13),     eye(13),    Qp, ydotbar, zeros(13,1),  0.0001,   0.01, 10);    % this task should be the last one
     
     % get the two variables for integration
-    uvms.q_dot = ydotbar(1:7);
-    uvms.p_dot = ydotbar(8:13);
+    uvms.v_q_dot = ydotbar(1:7);
+    uvms.v_p_dot = ydotbar(8:13);
+
+    % transform velocity in body fram to velocity in body frame
+    uvms.w_p_dot = adjointTransformation(uvms.wTv) * uvms.v_p_dot;
     
     % Integration
-	uvms.q = uvms.q + uvms.q_dot*deltat;
-    % beware: p_dot should be projected on <v>
-    uvms.p = integrate_vehicle(uvms.p, uvms.p_dot, deltat);
+	uvms.q = uvms.q + uvms.v_q_dot*deltat;
+    % beware: v_p_dot should be projected on <v>
+    uvms.p = integrate_vehicle(uvms.p, uvms.v_p_dot, deltat);
     
     % check if the mission phase should be changed
     [uvms, mission] = UpdateMissionPhase(uvms, mission);
@@ -121,7 +125,7 @@ for t = 0:deltat:end_time
 
     % enable this to have the simulation approximately evolving like real
     % time. Remove to go as fast as possible
-    SlowdownToRealtime(deltat);
+    % SlowdownToRealtime(deltat);
 end
 
 fclose(uVehicle);

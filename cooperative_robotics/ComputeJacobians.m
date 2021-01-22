@@ -9,7 +9,7 @@ function [uvms] = ComputeJacobians(uvms)
 % preferred arm posture ( [-0.0031 1.2586 0.0128 -1.2460] )
 %
 % remember: the control vector is:
-% [q_dot; p_dot] 
+% [v_q_dot; v_p_dot] 
 % [qdot_1, qdot_2, ..., qdot_7, xdot, ydot, zdot, omega_x, omega_y, omega_z]
 % with the vehicle velocities projected on <v>
 %

@@ -12,10 +12,11 @@ plt.t(loop) = t;
 plt.toolPos(:, loop) = uvms.wTt(1:3,4);
 
 plt.q(:, loop) = uvms.q;
-plt.q_dot(:, loop) = uvms.q_dot;
+plt.v_q_dot(:, loop) = uvms.v_q_dot;
 
 plt.p(:, loop) = uvms.p;
-plt.p_dot(:, loop) = uvms.p_dot;
+plt.v_p_dot(:, loop) = uvms.v_p_dot;
+plt.w_p_dot(:, loop) = uvms.w_p_dot;
 
 %plt.xdot_jl(:, loop) = uvms.xdot.jl;
 %plt.xdot_mu(:, loop) = uvms.xdot.mu;
@@ -27,4 +28,6 @@ plt.a(9, loop) = uvms.A.ha(1,1);
 
 plt.toolx(:,loop) = uvms.wTt(1,4);
 plt.tooly(:,loop) = uvms.wTt(2,4);
+
+plt.phi(:,loop) = norm(uvms.phi);
 end

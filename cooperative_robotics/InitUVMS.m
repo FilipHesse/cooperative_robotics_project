@@ -14,8 +14,9 @@ else
     end
 end
 
-uvms.q_dot = [0 0 0 0 0 0 0]';
-uvms.p_dot = [0 0 0 0 0 0]';
+uvms.v_q_dot = [0 0 0 0 0 0 0]';
+uvms.v_p_dot = [0 0 0 0 0 0]';
+uvms.w_p_dot = [0 0 0 0 0 0]';
 
 % joint limits corresponding to the actual MARIS arm configuration
 uvms.jlmin  = [-2.9;-1.6;-2.9;-2.95;-2.9;-1.65;-2.8];

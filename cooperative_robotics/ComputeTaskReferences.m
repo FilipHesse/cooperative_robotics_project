@@ -21,16 +21,15 @@ uvms.xdot.ha = - 0.2 * norm(uvms.rho);
 %% Compute altitude from sensor distance: Transform sensor distance from 
 % vehicle frame to world frame and consider only the z-component
 % => The distance will be projected on the k-axis of the world 
-uvms.alt = - [0 0 1]*uvms.wTv(1:3,1:3)*[0; 0; -uvms.sensorDistance];
+uvms.alt = [0 0 1]*uvms.wTv(1:3,1:3)*[0; 0; uvms.sensorDistance];
 
 %% reference for minimal altitude
 velocity_min_alt = 1;        %Move faster than normal navigation as this is more relevant
 uvms.xdot.min_alt = Saturate(velocity_min_alt * (uvms.min_alt + uvms.target_distance_above_min_alt - uvms.alt), 1);
 
 %TASK 2.1 ----------------------------------------
-%compute the current altitude from the seafloor
-uvms.altitude = [0 0 1]*uvms.wTv(1:3,1:3)*[0 0 uvms.sensorDistance]';
 %% reference for altitude of the vehicle that converges to 0
-uvms.xdot.alt = - 0.5 * (uvms.altitude - 0.1);
+velocity_landing = 0.2;
+uvms.xdot.alt = - velocity_landing * (uvms.alt - 0);
 
 

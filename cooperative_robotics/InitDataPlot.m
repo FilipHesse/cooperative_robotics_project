@@ -13,7 +13,7 @@ function [plt] = InitDataPlot( maxloops)
 
     plt.a = zeros(11, maxloops);
 
-    plt.phi = zeros(1, maxloops)
+    plt.rho = zeros(1, maxloops)
 
 end
 

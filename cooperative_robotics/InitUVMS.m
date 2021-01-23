@@ -34,7 +34,7 @@ uvms.bTe = eye(4,4);
 uvms.bJe = eye(6,7);
 uvms.djdq = zeros(6,7,7);
 uvms.mu  = 0;
-uvms.phi = zeros(3,1);
+uvms.rho = zeros(3,1);
 uvms.sensorDistance = 0;
 
 uvms.Jjl = [];

@@ -15,6 +15,6 @@ uvms.xdot.v.ang = Saturate(0.2 * ang, 0.2);
 uvms.xdot.v.lin = Saturate(0.2 * lin, 0.2);
 
 %% reference for horizontal attitude
-uvms.xdot.ha = - 0.2 * norm(uvms.phi); 
+uvms.xdot.ha = - 0.2 * norm(uvms.rho); 
 
 

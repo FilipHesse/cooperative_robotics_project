@@ -45,16 +45,16 @@ lgd.Location = 'eastoutside';
 saveas(gcf,strcat(dir,'pose_z_w',suffix,'.jpg'))
 
 figure();
-hplot = plot(plt.t, plt.phi);
+hplot = plot(plt.t, plt.rho);
 %ylim([-38.5,-35.5])
 xlim([0,5])
 xlabel('time [s]')
-ylabel('phi [rad]')
+ylabel('rho [rad]')
 set(hplot, 'LineWidth', 2);
-lgd = legend('phi');
+lgd = legend('rho');
 lgd.Location = 'eastoutside';
 grid on
-saveas(gcf,strcat(dir,'phi_w',suffix,'.jpg'))
+saveas(gcf,strcat(dir,'rho_w',suffix,'.jpg'))
 
 figure();
 hplot = plot(plt.t, plt.a(9,:));

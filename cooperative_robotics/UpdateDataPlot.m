@@ -29,5 +29,5 @@ plt.a(9, loop) = uvms.A.ha(1,1);
 plt.toolx(:,loop) = uvms.wTt(1,4);
 plt.tooly(:,loop) = uvms.wTt(2,4);
 
-plt.phi(:,loop) = norm(uvms.phi);
+plt.rho(:,loop) = norm(uvms.rho);
 end

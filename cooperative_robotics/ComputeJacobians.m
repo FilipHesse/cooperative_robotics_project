@@ -51,13 +51,13 @@ w_kw = [0 0 1]';                   % k-vector of world frame wrt to w
 v_kw = (uvms.vTw(1:3,1:3)) * w_kw; %Transform k in the world frame to k in the vehicle frame
 
 % Compute misalignment vector of k-axis
-uvms.phi   = ReducedVersorLemma(v_kw, v_kv); % only for k (=rho)
+uvms.rho   = ReducedVersorLemma(v_kw, v_kv); 
 
-if (norm(uvms.phi) > 0) % Avoid division by zero
-    nphi = uvms.phi/norm(uvms.phi); % compute unit vector 
+if (norm(uvms.rho) > 0) % Avoid division by zero
+    nrho = uvms.rho/norm(uvms.rho); % compute unit vector 
 else
-    nphi = [0 0 0]';
+    nrho = [0 0 0]';
 end
-uvms.Jha =[zeros(1,7) zeros(1,3) nphi'];
+uvms.Jha =[zeros(1,7) zeros(1,3) nrho'];
 
 end

@@ -2,7 +2,7 @@ function [ ] = PrintPlot_1_2( plt )
 % some predefined plots
 % you can add your own
 dir='./plot_output/1_2/';
-suffix='_1m';
+suffix='_5m';
 
 % % Plot complete pose and goals
 % fig = figure();hold on;;
@@ -81,7 +81,7 @@ set(hplot, 'LineWidth', 2);
 hplot = plot(plt.t, plt.goal(1:3,:), '--');
 set(hplot, 'LineWidth', 3);
 %set(hplot(4), 'LineWidth', 4);
-ylim([-34 -30])
+ylim([-34 -26])
 xlabel('time [s]')
 ylabel('positions in [m], angles in [rad]')
 

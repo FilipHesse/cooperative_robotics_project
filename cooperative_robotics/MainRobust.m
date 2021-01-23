@@ -7,7 +7,7 @@ close all
 
 % Simulation variables (integration and final time)
 deltat = 0.005;
-end_time = 150;
+end_time = 300;
 loop = 1;
 maxloops = ceil(end_time/deltat);
 

@@ -22,6 +22,11 @@ uvms.w_p_dot = [0 0 0 0 0 0]';
 uvms.jlmin  = [-2.9;-1.6;-2.9;-2.95;-2.9;-1.65;-2.8];
 uvms.jlmax  = [2.9;1.65;2.9;0.01;2.9;1.25;2.8];
 
+%Constants for minimum altitude objective
+uvms.min_alt = 1                          % Constants
+uvms.target_distance_above_min_alt = 0.5  % Inequality objective! Target should be above the minimal height
+
+
 % to be computed at each time step
 uvms.wTv = eye(4,4);
 uvms.wTt = eye(4,4);
@@ -36,7 +41,7 @@ uvms.djdq = zeros(6,7,7);
 uvms.mu  = 0;
 uvms.rho = zeros(3,1);
 uvms.sensorDistance = 0;
-uvms.min_alt = 1
+uvms.alt = 0
 
 uvms.Jjl = [];
 uvms.Jmu = [];

@@ -13,7 +13,9 @@ uvms.A.v.lin = eye(3);
  uvms.A.ha = IncreasingBellShapedFunction(0.1, 0.2, 0, 1, norm(uvms.rho));
 %uvms.A.ha = 0;
 
-% Task 1.1 --------------------------------
+% Task 1.2 --------------------------------
 % Minimum altitude objective
-uvms.A.min_alt = DecreasingBellShapedFunction(uvms.min_alt, uvms.min_alt + 0.5, 0, 1, uvms.sensorDistance);
+uvms.A.min_alt = DecreasingBellShapedFunction(uvms.min_alt, uvms.min_alt + uvms.target_distance_above_min_alt, 0, 1, uvms.alt);
+
+
  

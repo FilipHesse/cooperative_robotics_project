@@ -12,7 +12,7 @@ function [plt] = InitDataPlot( maxloops)
     plt.xdot_t = zeros(6, maxloops);
 
     plt.a = zeros(11, maxloops);
-
+    plt.sensorDistance = zeros(1, maxloops);
     plt.rho = zeros(1, maxloops)
 
 end

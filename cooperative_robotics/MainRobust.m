@@ -139,7 +139,7 @@ for t = 0:deltat:end_time
 
     % enable this to have the simulation approximately evolving like real
     % time. Remove to go as fast as possible
-    SlowdownToRealtime(deltat);
+    %SlowdownToRealtime(deltat);
 end
 
 fclose(uVehicle);

@@ -34,15 +34,16 @@ lgd = legend('x','y','z','roll','pitch','yaw');
 lgd.Location = 'eastoutside';
 saveas(gcf,strcat(dir,'pose_pitch_roll_yaw_w',suffix,'.jpg'))
 
+
 figure();
-hplot = plot(plt.t, plt.p);
-ylim([-38.5,-35.5])
+hplot = plot(plt.t, plt.sensorDistance);
+%ylim([-38.5,-35.5])
 xlabel('time [s]')
 ylabel('position [m]')
 set(hplot, 'LineWidth', 2);
-lgd = legend('x','y','z','roll','pitch','yaw');
+lgd = legend('sensor distance');
 lgd.Location = 'eastoutside';
-saveas(gcf,strcat(dir,'pose_z_w',suffix,'.jpg'))
+saveas(gcf,strcat(dir,'sensor_dist',suffix,'.jpg'))
 
 
 

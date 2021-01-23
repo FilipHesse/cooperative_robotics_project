@@ -89,6 +89,7 @@ for t = 0:deltat:end_time
     % the sequence of iCAT_task calls defines the priority
     
         % minimum altitude task
+        %ciao
 
     [Qp, ydotbar] = iCAT_task(uvms.A.min_alt, uvms.Jmin_alt, Qp, ydotbar, uvms.xdot.min_alt, 0.0001, 0.01, 10);
     [Qp, ydotbar] = iCAT_task(uvms.A.ha,    uvms.Jha,    Qp, ydotbar, uvms.xdot.ha,  0.0001,   0.01, 10);

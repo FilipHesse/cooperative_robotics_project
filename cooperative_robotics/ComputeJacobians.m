@@ -60,4 +60,8 @@ else
 end
 uvms.Jha =[zeros(1,7) zeros(1,3) nrho'];
 
+% EXERCISE 1.2 ------------------------------------------
+% Minimum altitude objective
+uvms.Jmin_alt = [0 0 1]*[zeros(3,7) uvms.wTv(1:3,1:3) zeros(3,3)];
+
 end

@@ -36,6 +36,7 @@ uvms.djdq = zeros(6,7,7);
 uvms.mu  = 0;
 uvms.rho = zeros(3,1);
 uvms.sensorDistance = 0;
+uvms.min_alt = 1
 
 uvms.Jjl = [];
 uvms.Jmu = [];
@@ -43,6 +44,7 @@ uvms.Jha = [];
 uvms.Jt_a = [];
 uvms.Jt_v = [];
 uvms.Jt = [];
+uvms.Jmin_alt = [];
 
 uvms.Jv.ang = [];
 uvms.Jv.lin = [];
@@ -53,6 +55,8 @@ uvms.xdot.ha = [];
 uvms.xdot.t = [];
 uvms.xdot.v.ang = [];
 uvms.xdot.v.lin = [];
+uvms.xdot.min_alt = [];
+
 
 
 uvms.A.jl = zeros(7,7);
@@ -61,6 +65,7 @@ uvms.A.ha = zeros(1,1);
 uvms.A.t = zeros(6,6);
 uvms.A.v.ang = zeros(3,3)
 uvms.A.v.lin = zeros(3,3)
+uvms.A.min_alt = zeros(3,3)
 
 end
 

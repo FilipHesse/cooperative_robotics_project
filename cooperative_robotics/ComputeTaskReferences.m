@@ -17,4 +17,9 @@ uvms.xdot.v.lin = Saturate(0.2 * lin, 0.2);
 %% reference for horizontal attitude
 uvms.xdot.ha = - 0.2 * norm(uvms.rho); 
 
+%% reference for altitude
+uvms.xdot.min_alt = - 0.5 * (uvms.sensorDistance- (uvms.min_alt+0.5));
+
+
+
 

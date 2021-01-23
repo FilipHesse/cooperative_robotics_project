@@ -1,8 +1,8 @@
-function [ ] = PrintPlot_1_1_ha_ena( plt )
+function [ ] = PrintPlot_2_1( plt )
 % some predefined plots
 % you can add your own
-dir='./plot_output/1_1/'
-suffix='_ha_ena'
+dir='./plot_output/2_1/'
+suffix=''
 
 fig = figure();
 hplot = plot(plt.t, plt.p);
@@ -44,29 +44,7 @@ lgd = legend('x','y','z','roll','pitch','yaw');
 lgd.Location = 'eastoutside';
 saveas(gcf,strcat(dir,'pose_z_w',suffix,'.jpg'))
 
-figure();
-hplot = plot(plt.t, plt.rho);
-%ylim([-38.5,-35.5])
-xlim([0,5])
-xlabel('time [s]')
-ylabel('rho [rad]')
-set(hplot, 'LineWidth', 2);
-lgd = legend('rho');
-lgd.Location = 'eastoutside';
-grid on
-saveas(gcf,strcat(dir,'rho_w',suffix,'.jpg'))
 
-figure();
-hplot = plot(plt.t, plt.a(9,:));
-%ylim([-38.5,-35.5])
-xlim([0,5])
-xlabel('time [s]')
-ylabel('activation')
-set(hplot, 'LineWidth', 2);
-lgd = legend('Aha');
-lgd.Location = 'eastoutside';
-grid on
-saveas(gcf,strcat(dir,'aha_w',suffix,'.jpg'))
 
 
 end

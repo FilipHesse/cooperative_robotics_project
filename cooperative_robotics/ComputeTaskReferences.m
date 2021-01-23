@@ -20,6 +20,10 @@ uvms.xdot.ha = - 0.2 * norm(uvms.rho);
 %% reference for altitude
 uvms.xdot.min_alt = - 0.5 * (uvms.sensorDistance- (uvms.min_alt+0.5));
 
-
+%TASK 2.1 ----------------------------------------
+%compute the current altitude from the seafloor
+uvms.altitude = [0 0 1]*uvms.wTv(1:3,1:3)*[0 0 uvms.sensorDistance]';
+%% reference for altitude of the vehicle that converges to 0
+uvms.xdot.alt = - 0.5 * (uvms.altitude - 0.1);
 
 

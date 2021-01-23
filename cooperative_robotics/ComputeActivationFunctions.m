@@ -15,7 +15,12 @@ uvms.A.v.lin = eye(3);
 
 % Task 1.2 --------------------------------
 % Minimum altitude objective
-uvms.A.min_alt = DecreasingBellShapedFunction(uvms.min_alt, uvms.min_alt + uvms.target_distance_above_min_alt, 0, 1, uvms.alt);
+uvms.A.min_alt = DecreasingBellShapedFunction(uvms.min_alt, uvms.min_alt + 0.5, 0, 1, uvms.sensorDistance);
+
+%Task 2.1 ---------------------------------
+% altitude control for "Landing" action
+uvms.A.alt = 1;
+
 
 
  

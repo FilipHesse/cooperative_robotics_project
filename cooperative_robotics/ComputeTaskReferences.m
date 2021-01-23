@@ -27,6 +27,10 @@ uvms.alt = - [0 0 1]*uvms.wTv(1:3,1:3)*[0; 0; -uvms.sensorDistance];
 velocity_min_alt = 1;        %Move faster than normal navigation as this is more relevant
 uvms.xdot.min_alt = Saturate(velocity_min_alt * (uvms.min_alt + uvms.target_distance_above_min_alt - uvms.alt), 1);
 
-
+%TASK 2.1 ----------------------------------------
+%compute the current altitude from the seafloor
+uvms.altitude = [0 0 1]*uvms.wTv(1:3,1:3)*[0 0 uvms.sensorDistance]';
+%% reference for altitude of the vehicle that converges to 0
+uvms.xdot.alt = - 0.5 * (uvms.altitude - 0.1);
 
 

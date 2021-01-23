@@ -13,7 +13,12 @@ function [plt] = InitDataPlot( maxloops)
 
     plt.a = zeros(11, maxloops);
 
-    plt.rho = zeros(1, maxloops)
+    plt.rho = zeros(1, maxloops);
 
+    plt.goal = zeros(6, maxloops)
+
+    plt.alt = zeros(1, maxloops);
+    plt.min_alt = zeros(1, maxloops);
+    plt.target_distance_above_min_alt = zeros(1, maxloops);  
 end
 

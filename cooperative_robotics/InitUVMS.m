@@ -23,7 +23,7 @@ uvms.jlmin  = [-2.9;-1.6;-2.9;-2.95;-2.9;-1.65;-2.8];
 uvms.jlmax  = [2.9;1.65;2.9;0.01;2.9;1.25;2.8];
 
 %Constants for minimum altitude objective
-uvms.min_alt = 5                          % Constants
+uvms.min_alt = 10                         % Constants
 uvms.target_distance_above_min_alt = 0.3  % Inequality objective! Target should be above the minimal height
 
 

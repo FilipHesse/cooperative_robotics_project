@@ -19,7 +19,7 @@ uvms.A.min_alt = DecreasingBellShapedFunction(uvms.min_alt, uvms.min_alt + uvms.
 
 %Task 2.1 ---------------------------------
 % altitude control for "Landing" action
-uvms.A.alt = 1;
+uvms.A.land = 1;
 
 
 

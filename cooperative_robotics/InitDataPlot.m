@@ -11,7 +11,7 @@ function [plt] = InitDataPlot( maxloops)
     plt.xdot_mu = zeros(1, maxloops);
     plt.xdot_t = zeros(6, maxloops);
 
-    plt.a = zeros(12, maxloops);
+    plt.a = zeros(13, maxloops);
 
     plt.rho = zeros(1, maxloops);
 
@@ -20,5 +20,6 @@ function [plt] = InitDataPlot( maxloops)
     plt.alt = zeros(1, maxloops);
     plt.min_alt = zeros(1, maxloops);
     plt.target_distance_above_min_alt = zeros(1, maxloops);  
+    plt.mission_phase = zeros(1, maxloops);
 end
 

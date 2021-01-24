@@ -1,4 +1,4 @@
-function [ plt ] = UpdateDataPlot( plt, uvms, t, loop )
+function [ plt ] = UpdateDataPlot( plt, uvms, t, loop, mission )
 
 % this function samples the variables contained in the structure uvms
 % and saves them in arrays inside the struct plt
@@ -28,6 +28,7 @@ plt.a(9, loop) = uvms.A.ha(1,1);
 plt.a(10, loop) = uvms.A.min_alt(1,1);
 plt.a(11, loop) = uvms.A.v.ang(1,1);
 plt.a(12, loop) = uvms.A.v.lin(1,1);
+plt.a(13, loop) = uvms.A.land;
 
 plt.toolx(:,loop) = uvms.wTt(1,4);
 plt.tooly(:,loop) = uvms.wTt(2,4);
@@ -40,4 +41,5 @@ plt.goal(:,loop) = [uvms.goalPosition; r; p; y];
 plt.alt(:,loop) = uvms.alt; 
 plt.min_alt(:,loop) = uvms.min_alt;
 plt.target_distance_above_min_alt(:,loop) = uvms.target_distance_above_min_alt;
+plt.mission_phase(:,loop) = mission.phase;
 end

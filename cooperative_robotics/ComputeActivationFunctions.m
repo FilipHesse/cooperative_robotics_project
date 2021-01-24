@@ -9,7 +9,7 @@ uvms.A.t = eye(6);
 uvms.A.v.ang = eye(3);
 uvms.A.v.lin = eye(3);
 
-% Horizontal attitude Task (Decativated for |rho|<0.1, activated for |rho|>0.2, bell shaped function between these values)
+% Horizontal attitude Task (Deactivated for |rho|<0.1, activated for |rho|>0.2, bell shaped function between these values)
  uvms.A.ha = IncreasingBellShapedFunction(0.1, 0.2, 0, 1, norm(uvms.rho));
 %uvms.A.ha = 0;
 
@@ -19,7 +19,7 @@ uvms.A.min_alt = DecreasingBellShapedFunction(uvms.min_alt, uvms.min_alt + uvms.
 
 %Task 2.1 ---------------------------------
 % altitude control for "Landing" action
-uvms.A.alt = 1;
+uvms.A.land = 1;
 
 
 

@@ -11,7 +11,7 @@ function [plt] = InitDataPlot( maxloops)
     plt.xdot_mu = zeros(1, maxloops);
     plt.xdot_t = zeros(6, maxloops);
 
-    plt.a = zeros(11, maxloops);
+    plt.a = zeros(12, maxloops);
 
     plt.rho = zeros(1, maxloops);
 

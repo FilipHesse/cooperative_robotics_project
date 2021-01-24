@@ -32,4 +32,8 @@ uvms.xdot.min_alt = Saturate(velocity_min_alt * (uvms.min_alt + uvms.target_dist
 velocity_landing = 0.2;
 uvms.xdot.land = - velocity_landing * (uvms.alt - 0);
 
+%TASK 3.1 ------------------------------------------------
+
+%% reference for attitude towards goal
+uvms.xdot.ga = - 0.2 * norm(uvms.xi);
 

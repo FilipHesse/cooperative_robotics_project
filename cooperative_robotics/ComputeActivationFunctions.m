@@ -19,7 +19,9 @@ uvms.A.min_alt = DecreasingBellShapedFunction(uvms.min_alt, uvms.min_alt + uvms.
 
 %Task 2.1 ---------------------------------
 % altitude control for "Landing" action
-uvms.A.land = 1;
+% start when misalignment angle to goal small
+uvms.A.land = DecreasingBellShapedFunction(0.1, 0.2, 0, 1, norm(uvms.xi)); 
+uvms.A.ga = 1;
 
 
 

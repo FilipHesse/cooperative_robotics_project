@@ -64,4 +64,20 @@ uvms.Jha =[zeros(1,7) zeros(1,3) nrho'];
 %EXERCISE 1.2, 2.1 -------------------------------------------
 %% Altitude Jacobian
 uvms.J_alt = [0 0 1]*[zeros(3,7) uvms.wTv(1:3,1:3) zeros(3,3)];
+
+%EXERCISE 3.1 ------------------------------------------------ 
+%% Goal attitude Jacobian
+rock_center = [12.2025   37.3748  -39.8860]'; % in world frame coordinates
+v_rock_center = uvms.vTw * [rock_center; 1]; % rock center in vehicle frame
+
+v_rock_center_projected = [1 0 0 0; 0 1 0 0; 0 0 0 0; 0 0 0 1] * v_rock_center;%rock center projected on x, yplane of vehicle
+v_iv = [1; 0; 0];
+uvms.xi = ReducedVersorLemma(v_rock_center_projected(1:3), v_iv); 
+
+if (norm(uvms.rho) > 0) % Avoid division by zero
+    nxi = uvms.xi/norm(uvms.xi); % compute unit vector 
+else
+    nxi = [0 0 0]';
 end
+
+uvms.J_ga =[zeros(1,7) zeros(1,3) nxi'];

@@ -24,8 +24,8 @@ uvms.xdot.ha = - 0.2 * norm(uvms.rho);
 uvms.alt = [0 0 1]*uvms.wTv(1:3,1:3)*[0; 0; uvms.sensorDistance];
 
 %% reference for minimal altitude
-velocity_min_alt = 1;        %Move faster than normal navigation as this is more relevant
-uvms.xdot.min_alt = Saturate(velocity_min_alt * (uvms.min_alt + uvms.target_distance_above_min_alt - uvms.alt), 1);
+velocity_min_alt = 0.5;        %Move faster than normal navigation as this is more relevant
+uvms.xdot.min_alt = Saturate(velocity_min_alt * (uvms.min_alt + uvms.target_distance_above_min_alt - uvms.alt), 0.5);
 
 %TASK 2.1 ----------------------------------------
 %% reference for altitude of the vehicle that converges to 0

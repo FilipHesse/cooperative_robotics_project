@@ -42,4 +42,5 @@ plt.alt(:,loop) = uvms.alt;
 plt.min_alt(:,loop) = uvms.min_alt;
 plt.target_distance_above_min_alt(:,loop) = uvms.target_distance_above_min_alt;
 plt.mission_phase(:,loop) = mission.phase;
+plt.xi(:,loop) = norm(uvms.xi);
 end

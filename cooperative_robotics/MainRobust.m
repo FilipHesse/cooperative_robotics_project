@@ -44,9 +44,9 @@ uvms = InitUVMS('Robust');
 % uvms.q 
 % Initial joint positions. You can change these values to initialize the simulation with a 
 % different starting position for the arm
-uvms.q = [-0.0031 0 0.0128 -1.2460 0.0137 0.0853-pi/2 0.0137]';
+% uvms.q = [-0.0031 0 0.0128 -1.2460 0.0137 0.0853-pi/2 0.0137]';
 
-%uvms.q = [-0.0031 -pi/2 0.0128 0 0.0137 0.0853-pi/2 0.0137]'; 
+uvms.q = [-0.0031 -pi/2 0.0128 0 0.0137 0.0853-pi/2 0.0137]'; 
 
 % uvms.p
 % initial position of the vehicle

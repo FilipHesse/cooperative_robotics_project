@@ -32,6 +32,7 @@ plt.a(13, loop) = uvms.A.land;
 
 plt.toolx(:,loop) = uvms.wTt(1,4);
 plt.tooly(:,loop) = uvms.wTt(2,4);
+plt.toolz(:,loop) = uvms.wTt(3,4);
 
 plt.rho(:,loop) = norm(uvms.rho);
 
@@ -42,4 +43,5 @@ plt.alt(:,loop) = uvms.alt;
 plt.min_alt(:,loop) = uvms.min_alt;
 plt.target_distance_above_min_alt(:,loop) = uvms.target_distance_above_min_alt;
 plt.mission_phase(:,loop) = mission.phase;
+plt.xi(:,loop) = norm(uvms.xi);
 end

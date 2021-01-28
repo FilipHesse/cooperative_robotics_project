@@ -21,5 +21,11 @@ function [plt] = InitDataPlot( maxloops)
     plt.min_alt = zeros(1, maxloops);
     plt.target_distance_above_min_alt = zeros(1, maxloops);  
     plt.mission_phase = zeros(1, maxloops);
+
+    plt.xi = zeros(1, maxloops);
+
+    plt.toolx = zeros(1, maxloops);
+    plt.tooly = zeros(1, maxloops);
+    plt.toolz = zeros(1, maxloops);
 end
 

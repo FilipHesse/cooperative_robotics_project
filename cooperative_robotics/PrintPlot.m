@@ -6,6 +6,8 @@ function [ ] = PrintPlot( plt )
 %PrintPlot_1_1_ha_not_ena(plt)
 %PrintPlot_1_1_ha_low_priority(plt)
 %PrintPlot_1_2(plt)
-PrintPlot_2_2(plt)
+%PrintPlot_2_2(plt)
+%PrintPlot_3_1(plt)
+PrintPlot_4_1(plt)
 end
 

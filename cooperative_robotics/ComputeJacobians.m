@@ -81,3 +81,6 @@ else
 end
 
 uvms.J_ga =[zeros(1,7) zeros(1,3) nxi'];
+
+%TASKE 4.1 --------------------------------------
+uvms.J.fix = [uvms.Jv.lin; uvms.Jv.ang];

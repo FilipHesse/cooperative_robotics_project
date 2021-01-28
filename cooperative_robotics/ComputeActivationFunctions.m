@@ -17,11 +17,18 @@ uvms.A.v.lin = eye(3);
 % Minimum altitude objective
 uvms.A.min_alt = DecreasingBellShapedFunction(uvms.min_alt, uvms.min_alt + uvms.target_distance_above_min_alt, 0, 1, uvms.alt);
 
-%Task 2.1 ---------------------------------
+% Task 2.1 ---------------------------------
 % altitude control for "Landing" action
 % start when misalignment angle to goal small
 uvms.A.land = DecreasingBellShapedFunction(0.1, 0.2, 0, 1, norm(uvms.xi)); 
+
+% Task 3.1 ---------------------------------
+% Goal attitude
 uvms.A.ga = 1;
+
+% Task 4.1 ---------------------------------
+% Fix Vehicle
+uvms.A.fix = eye(6);
 
 
 

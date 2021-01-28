@@ -37,3 +37,6 @@ uvms.xdot.land = - velocity_landing * (uvms.alt - 0);
 %% reference for attitude towards goal
 uvms.xdot.ga = - 0.2 * norm(uvms.xi);
 
+%TASK 4.1 -----------------------------------------------
+uvms.xdot.fix = [0 0 0 0 0 0]';
+

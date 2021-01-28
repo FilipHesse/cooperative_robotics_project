@@ -15,4 +15,7 @@ function [Qp, ydotbar] = EnableTasksSetPriorities(uvms, mission, ydotbar, Qp)
             %[Qp, ydotbar] = iCAT_task(uvms.A.t,    uvms.Jt,    Qp, ydotbar, uvms.xdot.t,  0.0001,   0.01, 10);
             %[Qp, ydotbar] = iCAT_task(uvms.A.v.ang,    uvms.Jv.ang,    Qp, ydotbar, uvms.xdot.v.ang,  0.0001,   0.01, 10);
             %[Qp, ydotbar] = iCAT_task(uvms.A.v.lin,    uvms.Jv.lin,    Qp, ydotbar, uvms.xdot.v.lin,  0.0001,   0.01, 10);
-end
+        case 3
+            [Qp, ydotbar] = iCAT_task(uvms.A.fix,    uvms.J.fix,    Qp, ydotbar, uvms.xdot.fix,  0.0001,   0.01, 10);
+            [Qp, ydotbar] = iCAT_task(uvms.A.t,    uvms.Jt,    Qp, ydotbar, uvms.xdot.t,  0.0001,   0.01, 10);
+    end

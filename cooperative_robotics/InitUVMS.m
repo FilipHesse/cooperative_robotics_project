@@ -55,6 +55,8 @@ uvms.J_ga = [];
 uvms.Jv.ang = [];
 uvms.Jv.lin = [];
 
+uvms.J.fix = [];
+
 
 uvms.xdot.jl = [];
 uvms.xdot.mu = [];
@@ -65,6 +67,7 @@ uvms.xdot.v.lin = [];
 uvms.xdot.min_alt = [];
 uvms.xdot.land = [];
 uvms.xdot.ga = [];
+uvms.xdot.fix = [];
 
 uvms.A.jl = zeros(7,7);
 uvms.A.mu = 0;
@@ -75,5 +78,8 @@ uvms.A.v.lin = zeros(3,3)
 uvms.A.min_alt = zeros(3,3)
 uvms.A.land = 0;
 uvms.A.ga = 0
+uvms.A.fix = zeros(6,6)
+
+
 end
 

@@ -32,6 +32,7 @@ plt.a(13, loop) = uvms.A.land;
 
 plt.toolx(:,loop) = uvms.wTt(1,4);
 plt.tooly(:,loop) = uvms.wTt(2,4);
+plt.toolz(:,loop) = uvms.wTt(3,4);
 
 plt.rho(:,loop) = norm(uvms.rho);
 

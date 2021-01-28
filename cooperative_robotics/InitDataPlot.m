@@ -23,5 +23,9 @@ function [plt] = InitDataPlot( maxloops)
     plt.mission_phase = zeros(1, maxloops);
 
     plt.xi = zeros(1, maxloops);
+
+    plt.toolx = zeros(1, maxloops);
+    plt.tooly = zeros(1, maxloops);
+    plt.toolz = zeros(1, maxloops);
 end
 

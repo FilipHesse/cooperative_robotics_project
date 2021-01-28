@@ -41,7 +41,8 @@ uvms.djdq = zeros(6,7,7);
 uvms.mu  = 0;
 uvms.rho = zeros(3,1);
 uvms.sensorDistance = 0;
-uvms.alt = 0
+uvms.alt = 0;
+uvms.fixedPose = zeros(4,4);
 
 uvms.Jjl = [];
 uvms.Jmu = [];

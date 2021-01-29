@@ -6,7 +6,8 @@ close all
 
 % Simulation variables (integration and final time)
 deltat = 0.005;
-end_time = 15;
+deltat = 0.05;
+end_time = 50;
 loop = 1;
 maxloops = ceil(end_time/deltat);
 
@@ -70,7 +71,8 @@ for t = 0:deltat:end_time
     Qp = eye(13); 
     % add all the other tasks here!
     % the sequence of iCAT_task calls defines the priority
-   
+    [Qp, rhop] = EnableTasksSetPriorities(uvms, mission, rhop, Qp);
+    [Qp, rhop] = iCAT_task(eye(13),     eye(13),    Qp, rhop, zeros(13,1),  0.0001,   0.01, 10);    % this task should be the last one
     
     % get the two variables for integration
     uvms.v_q_dot = rhop(1:7);
@@ -99,12 +101,12 @@ for t = 0:deltat:end_time
     
     % enable this to have the simulation approximately evolving like real
     % time. Remove to go as fast as possible
-    SlowdownToRealtime(deltat);
+    % SlowdownToRealtime(deltat);
 end
 
 fclose(uVehicle);
 fclose(uArm);
 
-PrintPlot(plt);
+PrintPlot(plt, uvms);
 
 end

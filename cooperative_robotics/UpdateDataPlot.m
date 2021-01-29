@@ -46,7 +46,5 @@ plt.mission_phase(:,loop) = mission.phase;
 plt.xi(:,loop) = norm(uvms.xi);
 
 plt.jlmin = uvms.jlmin;
-plt.jlmin(1)
-plt.jlmin(2)
 plt.jlmax = uvms.jlmax;
 end

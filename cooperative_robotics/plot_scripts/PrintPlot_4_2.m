@@ -2,7 +2,7 @@ function [ ] = PrintPlot_4_2( plt )
 % some predefined plots
 % you can add your own
 dir='./plot_output/4_2/';
-suffix='';
+suffix='_wrong_limits';
 
 mission_transitions = [];
 phases = [1 2 3 4 5 6 7 8 9 10];
@@ -99,6 +99,26 @@ end
 legend('al_1','al_2','al_3','al_4','al_5','al_6','al_7');
 lgd.Location = 'eastoutside';
 saveas(gcf,strcat(dir,'al',suffix,'.jpg'))
+
+
+q1_range = -4:0.01:4;
+a_jl1 = []
+for i = q1_range
+a_jl1 = [a_jl1, DecreasingBellShapedFunction( plt.jlmin(1), plt.jlmin(1) + 0.1, 0, 1, i ) ...
++ IncreasingBellShapedFunction( plt.jlmax(1) - 0.1,plt.jlmax(1), 0, 1, i)];
+end
+
+fig = figure();hold on;
+    set(gca,'ColorOrderIndex',3)
+    hplot = plot(q1_range, a_jl1);
+    ylim([-1.5, 2.5])
+    set(hplot, 'LineWidth', 2);
+    xline(plt.jlmin(1),':',"min angle");
+    xline(plt.jlmax(1),':',"max angle");
+    %hplot = yline(plt.goal(3,end), 'LineWidth', 3, 'LineStyle','--');
+    xlabel('q1 [rad]')
+    ylabel(strcat('a'))
+saveas(gcf,strcat(dir,'act_graph',suffix,'.jpg'))
 
 
 end

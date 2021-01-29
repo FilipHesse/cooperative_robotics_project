@@ -4,16 +4,25 @@ function [uvms, mission] = UpdateMissionPhase(uvms, mission)
             [ang, lin] = CartError(uvms.wTg , uvms.wTv);
             eps_lin = 0.01;
             eps_ang = 0.05;
+            norm(ang)
+            norm(lin)
             if norm(ang) < eps_ang && norm(lin) < eps_lin
                 mission.phase = 2;
-            end
-        case 2 
-            if uvms.alt < 0.03
-                mission.phase = 3;
-                uvms.fixedPose = uvms.wTv;
-                uvms.goalPosition = [12.2025   37.3748  -39.8860]'; %Rock center!
+                % Rotation matrix to convert coordinates between Unity and the <w> frame
+                % do not change
+                wuRw = rotation(0,-pi/2,pi/2);
+                vRvu = rotation(-pi/2,0,-pi/2);
+
+                % pipe parameters
+                u_pipe_center = [-10.66 31.47 -1.94]'; % in unity coordinates
+                pipe_center = wuRw'*u_pipe_center;     % in world frame coordinates
+                pipe_radius = 0.3;
+                distanceGoalWrtPipe = 0.3;
+                uvms.goalPosition = pipe_center + (pipe_radius + distanceGoalWrtPipe)*[0 0 1]';
                 uvms.wRg = rotation(pi,0,0);
-                uvms.wTg = [uvms.wRg uvms.goalPosition; 0 0 0 1]; 
+                uvms.wTg = [uvms.wRg uvms.goalPosition; 0 0 0 1];
+
+                uvms.fixedPose = uvms.wTv;
             end
     end
 end

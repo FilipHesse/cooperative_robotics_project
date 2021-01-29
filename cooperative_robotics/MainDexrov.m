@@ -7,7 +7,7 @@ close all
 % Simulation variables (integration and final time)
 deltat = 0.005;
 deltat = 0.05;
-end_time = 50;
+end_time = 100;
 loop = 1;
 maxloops = ceil(end_time/deltat);
 
@@ -51,8 +51,8 @@ uvms.p = [-1.9379 10.4813-6.1 -29.7242-0.1 0 0 0]';
 % initial goal position definition
 % slightly over the top of the pipe
 distanceGoalWrtPipe = 0.3;
-uvms.goalPosition = pipe_center + (pipe_radius + distanceGoalWrtPipe)*[0 0 1]';
-uvms.wRg = rotation(pi,0,0);
+uvms.goalPosition = pipe_center + (pipe_radius + distanceGoalWrtPipe + 1)*[0 0 1.5]' ;
+uvms.wRg = rotation(0,0,0);
 uvms.wTg = [uvms.wRg uvms.goalPosition; 0 0 0 1];
 
 % defines the tool control point
@@ -96,7 +96,7 @@ for t = 0:deltat:end_time
     % add debug prints here
     if (mod(t,0.1) == 0)
         t
-        uvms.p'
+        % uvms.p'
     end
     
     % enable this to have the simulation approximately evolving like real

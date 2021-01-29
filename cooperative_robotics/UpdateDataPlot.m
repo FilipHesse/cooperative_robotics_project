@@ -47,7 +47,5 @@ plt.target_distance_above_min_alt(:,loop) = uvms.target_distance_above_min_alt;
 plt.xi(:,loop) = norm(uvms.xi);
 
 plt.jlmin = uvms.jlmin;
-plt.jlmin(1)
-plt.jlmin(2)
 plt.jlmax = uvms.jlmax;
 end

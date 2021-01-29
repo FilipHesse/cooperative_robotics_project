@@ -44,5 +44,7 @@ uvms.xdot.fix = Saturate(0.2 * [ang; lin], 0.2);
 %TASK 4.2 ----------------------------------------------
 uvms.xdot.jl = Saturate(0.2 *((uvms.jlmax + uvms.jlmin)/2 - uvms.q), 0.2);     % Create a velocity away from the limits => move to the middle between jlmax and jlmin
 
-
+%TASK 5.1 ----------------------------------------------
+vel = 0.2;
+uvms.xdot.optm = - vel * (uvms.q(1:4) - uvms.pref_shape);
 

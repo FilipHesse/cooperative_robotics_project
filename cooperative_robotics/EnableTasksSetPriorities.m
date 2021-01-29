@@ -27,4 +27,15 @@ function [Qp, ydotbar] = EnableTasksSetPriorities(uvms, mission, ydotbar, Qp)
             [Qp, ydotbar] = iCAT_task(uvms.A.fix,    uvms.J.fix,    Qp, ydotbar, uvms.xdot.fix,  0.0001,   0.01, 10);
             % Move the tool towards the goal (=rock)
             [Qp, ydotbar] = iCAT_task(uvms.A.t,    uvms.Jt,    Qp, ydotbar, uvms.xdot.t,  0.0001,   0.01, 10);
+        case 4
+          % Joint limit task
+          [Qp, ydotbar] = iCAT_task(uvms.A.jl,    uvms.J.jl,    Qp, ydotbar, uvms.xdot.jl,  0.0001,   0.01, 10);
+          % horizontal attitude
+          [Qp, ydotbar] = iCAT_task(uvms.A.ha,    uvms.Jha,    Qp, ydotbar, uvms.xdot.ha,  0.0001,   0.01, 10);
+          % Goal attitude
+          [Qp, ydotbar] = iCAT_task(uvms.A.ga, uvms.J_ga, Qp, ydotbar, uvms.xdot.ga, 0.0001, 0.01, 10);
+          %Optimization control task
+          [Qp, ydotbar] = iCAT_task(uvms.A.optim, uvms.J_optm, Qp, ydotbar, uvms.xdot.optm,  0.0001,   0.01, 10);
+          % Landing
+          [Qp, ydotbar] = iCAT_task(uvms.A.land, uvms.J_alt, Qp, ydotbar, uvms.xdot.land, 0.0001, 0.01, 10);  
     end

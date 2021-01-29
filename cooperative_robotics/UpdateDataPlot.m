@@ -29,6 +29,7 @@ plt.a(10, loop) = uvms.A.min_alt(1,1);
 plt.a(11, loop) = uvms.A.v.ang(1,1);
 plt.a(12, loop) = uvms.A.v.lin(1,1);
 plt.a(13, loop) = uvms.A.land;
+plt.a(17:20, loop) = diag(uvms.A.optim);
 
 plt.toolx(:,loop) = uvms.wTt(1,4);
 plt.tooly(:,loop) = uvms.wTt(2,4);
@@ -42,7 +43,7 @@ plt.goal(:,loop) = [uvms.goalPosition; r; p; y];
 plt.alt(:,loop) = uvms.alt; 
 plt.min_alt(:,loop) = uvms.min_alt;
 plt.target_distance_above_min_alt(:,loop) = uvms.target_distance_above_min_alt;
-plt.mission_phase(:,loop) = mission.phase;
+%plt.mission_phase(:,loop) = mission.phase;
 plt.xi(:,loop) = norm(uvms.xi);
 
 plt.jlmin = uvms.jlmin;

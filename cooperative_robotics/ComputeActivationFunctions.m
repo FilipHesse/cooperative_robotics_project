@@ -35,4 +35,10 @@ uvms.A.fix = eye(6);
 for i = 1:length(uvms.q)
     uvms.A.jl(i, i) = DecreasingBellShapedFunction( uvms.jlmin(i), uvms.jlmin(i) + 0.1, 0, 1, uvms.q(i) ) + IncreasingBellShapedFunction( uvms.jlmax(i) - 0.1,uvms.jlmax(i), 0, 1, uvms.q(i));
 end
- 
+
+%Task 5.1 ----------------------------------
+% Preferred shape of the arm
+err_q = uvms.pref_shape - uvms.q (1:length(uvms.pref_shape));
+for i = 1: length(uvms.pref_shape)
+   uvms.A.optim (i, i) = IncreasingBellShapedFunction(uvms.pref_shape(i) - 0.1, uvms.pref_shape(i),0,1,norm(err_q(i)));
+end

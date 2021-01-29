@@ -12,7 +12,7 @@ function [uvms, mission] = UpdateMissionPhase(uvms, mission)
                 mission.phase = 3;
                 uvms.fixedPose = uvms.wTv;
                 uvms.goalPosition = [12.2025   37.3748  -39.8860]'; %Rock center!
-                uvms.wRg = rotation(pi,0,0); %*uvms.wTv(1:3,1:3);
+                uvms.wRg = rotation(pi,0,0);
                 uvms.wTg = [uvms.wRg uvms.goalPosition; 0 0 0 1]; 
             end
     end

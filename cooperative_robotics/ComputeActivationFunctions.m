@@ -30,6 +30,9 @@ uvms.A.ga = 1;
 % Fix Vehicle
 uvms.A.fix = eye(6);
 
-
-
+% Task 4.2 ---------------------------------
+% Activation function: two combined sigmoids, which are at their maximum at the joint limits and approach zero between them
+for i = 1:length(uvms.q)
+    uvms.A.jl(i, i) = DecreasingBellShapedFunction( uvms.jlmin(i), uvms.jlmin(i) + 0.1, 0, 1, uvms.q(i) ) + IncreasingBellShapedFunction( uvms.jlmax(i) - 0.1,uvms.jlmax(i), 0, 1, uvms.q(i));
+end
  

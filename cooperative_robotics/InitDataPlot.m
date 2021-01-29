@@ -27,5 +27,8 @@ function [plt] = InitDataPlot( maxloops)
     plt.toolx = zeros(1, maxloops);
     plt.tooly = zeros(1, maxloops);
     plt.toolz = zeros(1, maxloops);
+
+    plt.jlmin = zeros(7);
+    plt.jlmax = zeros(7);
 end
 

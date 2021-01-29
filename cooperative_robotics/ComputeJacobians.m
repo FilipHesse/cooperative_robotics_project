@@ -84,3 +84,7 @@ uvms.J_ga =[zeros(1,7) zeros(1,3) nxi'];
 
 %TASK 4.1 --------------------------------------
 uvms.J.fix = [uvms.Jv.ang; uvms.Jv.lin];
+
+%TASK 4.2 ---------------------------------------
+% Joint limits
+uvms.J.jl = [eye(7), zeros(7,6)];  %We are directly acting on the joint configurations

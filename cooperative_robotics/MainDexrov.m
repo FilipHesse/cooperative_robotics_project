@@ -7,7 +7,7 @@ close all
 % Simulation variables (integration and final time)
 deltat = 0.005;
 deltat = 0.05;
-end_time = 100;
+end_time = 150;
 loop = 1;
 maxloops = ceil(end_time/deltat);
 
@@ -82,7 +82,7 @@ for t = 0:deltat:end_time
     uvms.v_p_dot = rhop(8:13); %extract velocity here
     %Imagine, we are reading the velocity of the uvms here
     if mission.phase == 2
-        uvms.v_p_dot(1) = uvms.v_p_dot(1) + 0.2*sin(2*pi*0.5*t);
+        uvms.v_p_dot(1) = uvms.v_p_dot(1) + 0.1*sin(2*pi*0.1*t);
     end
     rhop(8:13) = uvms.v_p_dot;
 

@@ -90,5 +90,5 @@ uvms.J.fix = [uvms.Jv.ang; uvms.Jv.lin];
 uvms.J.jl = [eye(7), zeros(7,6)];  %We are directly acting on the joint configurations
 
 %TASK 5.1 ---------------------------------------
-% Optimized Jacobian for the preferred arm posture
-uvms.J_optm =  [eye(4) zeros(4,3) zeros(4,6)];
+% pref_shapeized Jacobian for the preferred arm posture
+uvms.J.pref_shape =  [eye(4) zeros(4,3) zeros(4,6)];

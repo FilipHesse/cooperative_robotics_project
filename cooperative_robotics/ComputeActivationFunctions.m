@@ -40,5 +40,5 @@ end
 % Preferred shape of the arm
 err_q = uvms.pref_shape - uvms.q (1:length(uvms.pref_shape));
 for i = 1: length(uvms.pref_shape)
-   uvms.A.optim (i, i) = IncreasingBellShapedFunction(uvms.pref_shape(i) - 0.1, uvms.pref_shape(i),0,1,norm(err_q(i)));
+   uvms.A.pref_shape (i, i) = IncreasingBellShapedFunction(uvms.pref_shape(i) - 0.1, uvms.pref_shape(i),0,1,norm(err_q(i)));
 end

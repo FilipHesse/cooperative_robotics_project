@@ -1,8 +1,8 @@
-function [ ] = PrintPlot_5_1( plt, uvms )
+function [ ] = PrintPlot_5_2( plt, uvms )
 % some predefined plots
 % you can add your own
-dir='./plot_output/5_1/';
-suffix='_pref_disabled';
+dir='./plot_output/5_2/';
+suffix='_pref_enabled';
 
 mission_transitions = [];
 phases = [1 2 3 4 5 6 7 8 9 10];

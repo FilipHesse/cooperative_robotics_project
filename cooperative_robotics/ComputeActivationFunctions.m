@@ -38,9 +38,10 @@ end
 
 %Task 5.1 ----------------------------------
 % Preferred shape of the arm
-for i = 1: length(uvms.pref_shape)
-   uvms.A.pref_shape (i, i) = 0.6;
-end
+uvms.A.pref_shape = 0.6*eye(4);
 
-% Lock vehicle position/orientation control
-uvms.A.lock_vehicle = eye(6);
+% for i = 1: length(uvms.pref_shape)
+%    uvms.A.pref_shape (i, i) = 1;
+% end
+
+

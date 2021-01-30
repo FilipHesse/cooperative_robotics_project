@@ -5,6 +5,7 @@ function [plt] = InitDataPlot( maxloops)
 
     plt.p = zeros(6, maxloops);
     plt.v_p_dot = zeros(6, maxloops);
+    plt.v_p_dot_tool = zeros(6, maxloops);
     plt.w_p_dot = zeros(6, maxloops);
 
     plt.xdot_jl = zeros(7, maxloops);

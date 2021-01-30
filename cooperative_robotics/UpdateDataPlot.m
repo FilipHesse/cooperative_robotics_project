@@ -17,6 +17,7 @@ plt.v_q_dot(:, loop) = uvms.v_q_dot;
 plt.p(:, loop) = uvms.p;
 plt.v_p_dot(:, loop) = uvms.v_p_dot;
 plt.w_p_dot(:, loop) = uvms.w_p_dot;
+plt.v_p_dot_tool(:, loop) = uvms.v_p_dot_tool;
 
 %plt.xdot_jl(:, loop) = uvms.xdot.jl;
 %plt.xdot_mu(:, loop) = uvms.xdot.mu;

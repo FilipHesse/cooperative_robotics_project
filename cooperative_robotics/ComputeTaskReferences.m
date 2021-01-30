@@ -46,4 +46,4 @@ uvms.xdot.jl = Saturate(0.2 *((uvms.jlmax + uvms.jlmin)/2 - uvms.q), 0.2);     %
 
 %TASK 5.1 ----------------------------------------------
 vel = 0.2;
-uvms.xdot.pref_shape = - vel * (uvms.q(1:4) - uvms.pref_shape);
+uvms.xdot.pref_shape = - vel * Saturate(uvms.q(1:4) - uvms.pref_shape, 0.2);

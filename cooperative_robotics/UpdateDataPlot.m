@@ -29,7 +29,7 @@ plt.a(10, loop) = uvms.A.min_alt(1,1);
 plt.a(11, loop) = uvms.A.v.ang(1,1);
 plt.a(12, loop) = uvms.A.v.lin(1,1);
 plt.a(13, loop) = uvms.A.land;
-plt.a(17:20, loop) = diag(uvms.A.pref_shape);
+plt.a(14:17, loop) = diag(uvms.A.pref_shape);
 
 plt.toolx(:,loop) = uvms.wTt(1,4);
 plt.tooly(:,loop) = uvms.wTt(2,4);

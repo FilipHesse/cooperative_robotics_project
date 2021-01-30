@@ -6,7 +6,7 @@ function [uvms, mission] = UpdateMissionPhase(uvms, mission)
             eps_ang = 0.05;
             norm(ang)
             norm(lin)
-            if norm(ang) < eps_ang && norm(lin) < eps_lin
+            if norm(lin) < eps_lin
                 mission.phase = 2;
                 % Rotation matrix to convert coordinates between Unity and the <w> frame
                 % do not change

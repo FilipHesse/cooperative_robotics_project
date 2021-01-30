@@ -51,8 +51,8 @@ uvms.p = [-1.9379 10.4813-6.1 -29.7242-0.1 0 0 0]';
 % initial goal position definition
 % slightly over the top of the pipe
 distanceGoalWrtPipe = 0.3;
-uvms.goalPosition = pipe_center + (pipe_radius + distanceGoalWrtPipe + 1)*[0 0 1.2]' ;
-uvms.wRg = rotation(0,0,0);
+uvms.goalPosition = pipe_center + (pipe_radius + distanceGoalWrtPipe + 1)*[0 0 1.3]' ;
+uvms.wRg = rotation(0,0,pi/2);
 uvms.wTg = [uvms.wRg uvms.goalPosition; 0 0 0 1];
 
 % defines the tool control point

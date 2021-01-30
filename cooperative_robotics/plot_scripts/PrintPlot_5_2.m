@@ -26,22 +26,7 @@ end
 % ylim([0 1])
 % saveas(gcf,strcat(dir,'a_funct',suffix,'.jpg'))
 
-% fig = figure();hold on;
-% hplot = plot(plt.t, plt.toolx);
-% set(gca,'ColorOrderIndex',1);
-% set(hplot, 'LineWidth', 2);
-% hplot = yline(plt.pref_shape(1,end), 'LineWidth', 3, 'LineStyle','--');
-% set(hplot, 'LineWidth', 3);
-% ylim([11.5, 12.5]);
-% xlabel('time [s]')
-% ylabel('position of the tool [m]')
-% for i = 1:length(mission_transitions)
-%     xline(mission_transitions(i),':',strcat("Phase ",int2str(i)));
-% end
-% 
-% 
-% lgd.Location = 'eastoutside';
-% saveas(gcf,strcat(dir,'x_tool',suffix,'.jpg'))
+
 
 
 
@@ -110,9 +95,13 @@ for j = 1:7
         xline(mission_transitions(i),':');
     end
     if j <= 4
-        hplot = yline(pref_shape(j),'r--');
+        hplot = yline(pref_shape(j),'g--');
         set(hplot, 'LineWidth', 2);
     end
+    hplot = yline(plt.jlmin(j),'r--');
+    set(hplot, 'LineWidth', 2);
+    hplot = yline(plt.jlmax(j),'r--');
+    set(hplot, 'LineWidth', 2);
 end
 % subplot(3,3,8)
 % plot(0,0,  0,0,  0,0,  0,0)
@@ -120,6 +109,60 @@ end
 % legend('al_1','al_2','al_3','al_4','al_5','al_6','al_7');
 saveas(gcf,strcat(dir,'q',suffix,'.jpg'))
 
+% Plot activations of relevant tasks
+fig = figure();hold on;;
+hplot = plot(plt.t, plt.a(9:13,:),'--');
+ylim([0 1])
+set(hplot(1), 'LineWidth', 1);
+set(hplot(2), 'LineWidth', 1.5);
+set(hplot(3), 'LineWidth', 2);
+set(hplot(4), 'LineWidth', 2.5);
+set(hplot(5), 'LineWidth', 3);
+xlabel('time [s]')
+ylabel('activation')
+for i = 1:length(mission_transitions)
+    xline(mission_transitions(i),':',strcat("Phase ",int2str(i)));
+end
+
+lgd = legend('a\_ha','a\_min\_ alt','a\_v\_ang','a\_v\_lin','a\_land');
+lgd.Location = 'eastoutside';
+saveas(gcf,strcat(dir,'act',suffix,'.jpg'))
+
+
+% Plot activations of relevant tasks
+fig = figure();hold on;;
+hplot = plot(plt.t, plt.a(1:7,:),'--');
+ylim([0 1])
+set(hplot(1), 'LineWidth', 1);
+set(hplot(2), 'LineWidth', 1.5);
+set(hplot(3), 'LineWidth', 2);
+set(hplot(4), 'LineWidth', 2.5);
+set(hplot(5), 'LineWidth', 3);
+set(hplot(6), 'LineWidth', 3.5);
+set(hplot(7), 'LineWidth', 4);
+xlabel('time [s]')
+ylabel('activation')
+for i = 1:length(mission_transitions)
+    xline(mission_transitions(i),':',strcat("Phase ",int2str(i)));
+end
+
+lgd = legend('ajl_1','ajl_2','ajl_3','ajl_4','ajl_5','ajl_6','ajl_7');
+lgd.Location = 'eastoutside';
+saveas(gcf,strcat(dir,'act',suffix,'.jpg'))
+
+% % Plot xi (target misalignment)
+fig = figure();hold on;;
+hplot = plot(plt.t, plt.xi);
+set(hplot, 'LineWidth', 2);
+xlabel('time [s]')
+ylabel('\xi [rad]')
+for i = 1:length(mission_transitions)
+    xline(mission_transitions(i),':',strcat("Phase ",int2str(i)));
+end
+
+lgd = legend('\xi');
+lgd.Location = 'eastoutside';
+saveas(gcf,strcat(dir,'xi',suffix,'.jpg'))
 
 
 end

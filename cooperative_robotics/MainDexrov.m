@@ -74,9 +74,13 @@ for t = 0:deltat:end_time
     [Qp, rhop] = EnableTasksSetPriorities(uvms, mission, rhop, Qp);
     [Qp, rhop] = iCAT_task(eye(13),     eye(13),    Qp, rhop, zeros(13,1),  0.0001,   0.01, 10);    % this task should be the last one
     
+
+    rhop(8) = rhop(8) + 0.2*sin(2*pi*0.3*t);
+
     % get the two variables for integration
     uvms.v_q_dot = rhop(1:7);
     uvms.v_p_dot = rhop(8:13);
+
     
     % Integration
 	uvms.q = uvms.q + uvms.v_q_dot*deltat;

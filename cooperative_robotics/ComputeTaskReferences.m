@@ -38,8 +38,9 @@ uvms.xdot.land = - velocity_landing * (uvms.alt - 0);
 uvms.xdot.ga = - 0.2 * norm(uvms.xi);
 
 %TASK 4.1 -----------------------------------------------
-[ang, lin] = CartError(uvms.fixedPose , uvms.wTv);
-uvms.xdot.fix = Saturate(0.2 * [ang; lin], 0.2);
+% [ang, lin] = CartError(uvms.fixedPose , uvms.wTv);
+% uvms.xdot.fix = Saturate(0.2 * [ang; lin], 0.2);
+uvms.xdot.fix = [0 0 0 0 0 0]';
 
 %TASK 4.2 ----------------------------------------------
 uvms.xdot.jl = Saturate(0.2 *((uvms.jlmax + uvms.jlmin)/2 - uvms.q), 0.2);     % Create a velocity away from the limits => move to the middle between jlmax and jlmin

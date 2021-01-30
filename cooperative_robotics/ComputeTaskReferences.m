@@ -1,12 +1,12 @@
-function [uvms] = ComputeTaskReferences(uvms, mission)
+function [uvms] = ComputeTaskReferences(uvms, mission, rhop)
 % compute the task references here
 % GIVEN CODE--------------------------------------
 % reference for tool-frame position control task
 [ang, lin] = CartError(uvms.vTg , uvms.vTt);
-uvms.xdot.t = 0.2 * [ang; lin];
+uvms.xdot.t = 100 * [ang; lin];
 % limit the requested velocities...
-uvms.xdot.t(1:3) = Saturate(uvms.xdot.t(1:3), 0.2);
-uvms.xdot.t(4:6) = Saturate(uvms.xdot.t(4:6), 0.2);
+uvms.xdot.t(1:3) = Saturate(uvms.xdot.t(1:3), 5);
+uvms.xdot.t(4:6) = Saturate(uvms.xdot.t(4:6), 5);
 
 % TASK 1.1 ---------------------------------------
 % reference for vehicle-frame position control task
@@ -48,3 +48,6 @@ uvms.xdot.jl = Saturate(0.2 *((uvms.jlmax + uvms.jlmin)/2 - uvms.q), 0.2);     %
 %TASK 5.1 ----------------------------------------------
 vel = 0.2;
 uvms.xdot.pref_shape = - vel * Saturate(uvms.q(1:4) - uvms.pref_shape, 0.2);
+
+% Lock vehicle position/orientation control
+uvms.xdot.lock_vehicle =  rhop(8:13);

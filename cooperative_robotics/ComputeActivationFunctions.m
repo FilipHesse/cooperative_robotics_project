@@ -42,3 +42,5 @@ for i = 1: length(uvms.pref_shape)
    uvms.A.pref_shape (i, i) = 0.6;
 end
 
+% Lock vehicle position/orientation control
+uvms.A.lock_vehicle = eye(6);

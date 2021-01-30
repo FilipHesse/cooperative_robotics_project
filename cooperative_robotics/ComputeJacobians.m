@@ -91,3 +91,6 @@ uvms.J.jl = [eye(7), zeros(7,6)];  %We are directly acting on the joint configur
 %TASK 5.1 ---------------------------------------
 % pref_shapeized Jacobian for the preferred arm posture
 uvms.J.pref_shape =  [eye(4) zeros(4,3) zeros(4,6)];
+
+% Lock vehicle position/orientation control
+uvms.J.lock_vehicle = [zeros(6,7), eye(6)]

@@ -11,6 +11,7 @@ function [ ] = PrintPlot( plt, uvms )
 %PrintPlot_4_1(plt)
 %PrintPlot_4_2(plt)
 %PrintPlot_5_1( plt, uvms )
-PrintPlot_5_2( plt, uvms )
+%PrintPlot_5_2( plt, uvms )
+PrintPlot_6_1( plt, uvms )
 end
 

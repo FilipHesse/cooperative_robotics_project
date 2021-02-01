@@ -1,5 +1,6 @@
 function MainDexrov
 addpath('./simulation_scripts');
+addpath('./plot_scripts');
 clc;
 clear;
 close all

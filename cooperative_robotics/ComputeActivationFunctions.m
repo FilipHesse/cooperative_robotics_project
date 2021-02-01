@@ -38,7 +38,5 @@ end
 
 %Task 5.1 ----------------------------------
 % Preferred shape of the arm
-for i = 1: length(uvms.pref_shape)
-   uvms.A.pref_shape (i, i) = 0.6;
-end
+uvms.A.pref_shape = eye(4)
 

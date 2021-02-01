@@ -2,7 +2,7 @@ function [ ] = PrintPlot_5_2( plt, uvms )
 % some predefined plots
 % you can add your own
 dir='./plot_output/5_2/';
-suffix='_pref_enabled';
+suffix='_pref_disabled';
 
 mission_transitions = [];
 phases = [1 2 3 4 5 6 7 8 9 10];
@@ -44,7 +44,7 @@ for i = 1:length(mission_transitions)
     xline(mission_transitions(i),':',strcat("Phase ",int2str(i)));
 end
 legend('x_{tool}','x_{goal}');
-lgd.Location = 'southeast';
+lgd.Location = 'eastoutside';
 saveas(gcf,strcat(dir,'x_tool',suffix,'.jpg'))
 
 fig = figure();hold on;
@@ -59,7 +59,7 @@ for i = 1:length(mission_transitions)
     xline(mission_transitions(i),':',strcat("Phase ",int2str(i)));
 end
 legend('y_{tool}','y_{goal}');
-lgd.Location = 'southeast';
+lgd.Location = 'eastoutside';
 saveas(gcf,strcat(dir,'y_tool',suffix,'.jpg'))
 
 
@@ -75,7 +75,7 @@ for i = 1:length(mission_transitions)
     xline(mission_transitions(i),':',strcat("Phase ",int2str(i)));
 end
 legend('z_{tool}','z_{goal}');
-lgd.Location = 'southeast';
+lgd.Location = 'eastoutside';
 saveas(gcf,strcat(dir,'z_tool',suffix,'.jpg'))
 
 
